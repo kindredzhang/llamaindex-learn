@@ -12,6 +12,13 @@ class MyWorkflow(Workflow):
         return StopEvent(result="Hello, world!")
 
 
-w = MyWorkflow(timeout=10, verbose=False)
-result = w.run()
-print(result)
+async def main():
+    w = MyWorkflow(timeout=10, verbose=False)
+    result = await w.run()
+    print(result)
+
+
+if __name__ == "__main__":
+    import asyncio
+
+    asyncio.run(main())
