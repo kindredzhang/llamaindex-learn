@@ -4,6 +4,7 @@ from typing import Any, Dict
 from llama_index.core.workflow import (Event, StartEvent, StopEvent, Workflow,
                                        step)
 from llama_index.llms.openai import OpenAI
+from llama_index.core.workflow import draw_all_possible_flows
 
 
 class QueryEvent(Event):
@@ -65,4 +66,5 @@ async def main():
 
 if __name__ == "__main__":
     import asyncio
+    draw_all_possible_flows(MyWorkflow, filename="multi_step_workflow.html")
     asyncio.run(main())
